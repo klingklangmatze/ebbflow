@@ -11,16 +11,7 @@ keyboardz = midi.connect()
 function init()
     nv.init(8) -- 8 voice polyphony
 
-    --nv.params() --add the author supplied params instead of rolling your own
-
-        params:add {
-        id="shape",
-        type='control',
-        controlspec = controlspec.new(0, 1, "lin", 0, 0.5, ''),
-        action = function(v)
-            nv.all.shape(v)
-        end
-    }
+    params:add {id="shape", type='control', controlspec = controlspec.new(0, 1, "lin", 0, 0.5, ''), action = function(v) nv.all.shape(v) end}
   
     
 end
