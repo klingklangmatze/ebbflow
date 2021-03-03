@@ -11,9 +11,21 @@ keyboardz = midi.connect()
 function init()
     nv.init(8) -- 8 voice polyphony
 
-    params:add {id="shape", type='control', controlspec = controlspec.new(0, 1, "lin", 0, 0.5, ''), action = function(v) nv.all.shape(v) end}
-  
+    params:add {id="shape", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0.5, ''), action = function(v) nv.all.shape(v) end}
+    params:add {id="slope", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0.5, ''), action = function(v) nv.all.slope(v) end}
+    params:add {id="smooth", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0.5, ''), action = function(v) nv.all.smooth(v) end}
+    params:add {id="shift", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0, ''), action = function(v) nv.all.shift(v) end}
+    params:add {id="output_mode", type='control', controlspec = controlspec.new(0, 3, "lin", 1, 0, ''), action = function(v) nv.all.output_mode(v) end}
+    params:add {id="fade", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0, ''), action = function(v) nv.all.fader(v) end}
+    params:add {id="ampAtk", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0.01, ''), action = function(v) nv.all.ampAtk(v) end}
+    params:add {id="ampDec", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0.1, ''), action = function(v) nv.all.ampDec(v) end}
+    params:add {id="ampSus", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 1.0, ''), action = function(v) nv.all.ampSus(v) end}
+    params:add {id="ampRel", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 1.0, ''), action = function(v) nv.all.ampRel(v) end}
+    params:add {id="ampCurve", type='control', controlspec = controlspec.new(-8, 5, "lin", 0.01, -3.0, ''), action = function(v) nv.all.ampCurve(v) end}
+    params:add {id="level", type='control', controlspec = controlspec.new(0, 1, "lin", 0.01, 0.2, ''), action = function(v) nv.all.lvel(v) end}
+        
     
+       
 end
 
 keyboardz.event = function(data)
