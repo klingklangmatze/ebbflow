@@ -32,7 +32,7 @@ keyboardz.event = function(data)
     local msg = midi.to_msg(data)
     if msg.type == "note_on" then
         nv.id(msg.note).hz(musicutil.note_num_to_freq(msg.note)) -- actual hz is vc.hz * all.hz
-        nv.id(msg.note).peak((msg.vel / 127) + 0.75)
+        nv.id(msg.note).peak((msg.vel / 127 /4 ) + 0.75)
     elseif msg.type == "note_off" then
         nv.id(msg.note).peak(0)
     end
